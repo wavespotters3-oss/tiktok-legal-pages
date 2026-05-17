@@ -1,33 +1,43 @@
 <!doctype html>
-<html lang="en">
+<html lang="pl">
 <head>
-  <meta charset="utf-8">
-  <title>Satellite Image Publisher</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Instagram OAuth Callback</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <h1>Satellite Image Publisher</h1>
+  <main class="container">
+    <h1>Instagram OAuth Callback</h1>
 
-  <p>
-    Satellite Image Publisher is a student engineering project developed in cooperation
-    with the Antenna Design Student Research Group at Warsaw University of Technology.
-  </p>
+    <section id="success" class="card hidden">
+      <h2>Odebrano code</h2>
+      <p>Skopiuj ten kod i wymień go lokalnie na access token.</p>
 
-  <p>
-    The service is used to publish satellite imagery received by a ground station
-    to TikTok for educational and scientific communication purposes.
-  </p>
+      <textarea id="code" readonly></textarea>
 
-  <p>
-    The application uses the TikTok API to upload or publish selected satellite images
-    to an authorized TikTok account.
-  </p>
+      <button id="copyCode">Kopiuj code</button>
+    </section>
 
-  <h2>Legal</h2>
-  <p>
-    <a href="/tiktok-legal-pages/terms.html">Terms of Service</a>
-  </p>
-  <p>
-    <a href="/tiktok-legal-pages/privacy.html">Privacy Policy</a>
-  </p>
+    <section id="error" class="card hidden">
+      <h2>Błąd OAuth</h2>
+      <p id="errorText"></p>
+    </section>
+
+    <section id="empty" class="card hidden">
+      <h2>Brak parametru code</h2>
+      <p>
+        Ta strona powinna zostać otwarta przez przekierowanie z Instagrama,
+        np. z parametrem <code>?code=...</code>.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>Aktualny URL callbacka</h2>
+      <p id="currentUrl"></p>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
 </body>
 </html>
